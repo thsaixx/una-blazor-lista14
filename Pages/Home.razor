@@ -1,0 +1,45 @@
+﻿@page "/"
+@using MeuCurriculo.models
+@using MeuCurriculo.Components
+
+<PageTitle>Currículo | Dev .NET</PageTitle>
+
+<div class="container py-4">
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="text-center p-4 bg-light rounded-3 mb-4">
+                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" class="rounded-circle mb-3"
+                     width="120" />
+                <h3>Guilherme Augusto</h3>
+                <p class="text-muted">Desenvolvedor Front-end</p>
+            </div>
+        </div>
+
+        <div class="col-lg-8">
+            <h2 class="mb-4">Experiência Profissional</h2>
+            
+            @foreach (var exp in MinhasExperiencias)
+            {
+                <ExperienceCard Dados="exp" />
+            }
+        </div>
+    </div>
+</div>
+
+@code {
+    private List<Experiencia> MinhasExperiencias = new()
+    {
+        new Experiencia {
+            Empresa = "Aethra Sistemas Automotivos",
+            Cargo = "Aprendiz",
+            Inicio = "2025",
+            Descricao = "Atuação de suporte ao usuario"
+        },
+        new Experiencia {
+            Empresa = "Iniciativa Pessoal",
+            Cargo = "Freelancer",
+            Inicio = "2025",
+            Descricao = "Chefe de cozinha"
+        }
+    };
+}
